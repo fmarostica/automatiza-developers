@@ -6,13 +6,15 @@
         @if (count($documents)>0)
             <div class="row">
                 @foreach ($documents as $document)
-                    <div class="col-md-3">
-                        <div class="article-box-item my-3">
-                            <img class="image" src="{{ $document->image }}" />
+                    <div class="col-md-4">
+                        <div class="article-box-item rounded my-3">
                             <div>
                                 <h2 class="title">{{ $document->title }}</h2>
-                                <div>
+                                <div class="description">
                                     {{ $document->short_desc }}
+                                </div>
+                                <div class="footer">
+                                    <a href="">{{ __("app.btn_view_more") }}</a>
                                 </div>
                             </div>
                         </div>

@@ -18,7 +18,6 @@ class CreateDocumentsTable extends Migration
             $table->string("title");
             $table->string("slug")->unique();
             $table->text("short_desc");
-            $table->string("image")->default("/images/logo.jpg");
             $table->string("path")->default("");
             $table->text("content");
             $table->timestamps();
