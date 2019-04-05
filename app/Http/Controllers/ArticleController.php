@@ -14,7 +14,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view("news");
+        $articles = Article::paginate(8);
+        return view("news", compact("articles"));
     }
 
     /**
