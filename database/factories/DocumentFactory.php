@@ -7,6 +7,8 @@ $factory->define(App\Document::class, function (Faker $faker) {
     return [
         "title"=>$title,
         "slug"=>str_slug($title),
-        "short_desc"=>$faker->text(200)
+        "short_desc"=>$faker->text(200),
+        "image"=>"/images/logo.jpg",
+        "content"=>""
     ];
 });

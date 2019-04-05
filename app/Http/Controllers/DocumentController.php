@@ -14,7 +14,8 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        return view("documents");
+        $documents = Document::paginate(8);
+        return view("documents", compact("documents"));
     }
 
     /**
