@@ -36,7 +36,7 @@
 .article-box-item .description {
     padding: 3px 10px;
     font-size: 14px;
-    height: 110px;
+    height: 140px;
 }
 
 .article-box-item .footer{
@@ -47,4 +47,13 @@
 
 .article-box-item .footer a{
     color: white;
+}
+
+.page-item.active .page-link {
+    background-color: rgb(118, 0, 139);
+    border-color: rgb(118, 0, 139);
+}
+
+.page-link{
+    color: rgb(118, 0, 139);
 }
