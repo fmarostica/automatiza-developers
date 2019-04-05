@@ -14,7 +14,7 @@
                                     {{ $document->short_desc }}
                                 </div>
                                 <div class="footer">
-                                    <a href="">{{ __("app.btn_view_more") }}</a>
+                                    <a href="/docs/{{ $document->slug }}">{{ __("app.btn_view_more") }}</a>
                                 </div>
                             </div>
                         </div>
