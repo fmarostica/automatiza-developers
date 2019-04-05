@@ -39,6 +39,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Common links -->
                         <li class="nav-item"><a href="{{ url('/') }}" class="nav-link">{{ __("app.home") }}</a></li>
+                        <li class="nav-item"><a href="{{ url('/news') }}" class="nav-link">{{ __("app.news") }}</a></li>
                         <li class="nav-item"><a href="{{ url('/docs') }}" class="nav-link">{{ __("app.documentation") }}</a></li>
                         <li class="nav-item"><a href="{{ url('/downloads') }}" class="nav-link">{{ __("app.downloads") }}</a></li>
                         <!-- Authentication Links -->
