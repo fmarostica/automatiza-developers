@@ -7,12 +7,14 @@
         @if (count($articles)>0)
             <div class="row">
                 @foreach ($articles as $article)
-                    <div class="article-list-item">
-                        <div class="col-md-3">
-                            <img src="{{ '/images/articles/'.$article->id.'/'.$article->image }}" />
-                        </div>
-                        <div class="col-md-9">
-                            <h2>{{ $article->title }}</h2>
+                    <div class="col-md-12">
+                        <div class="article-list-item row my-3">
+                            <div class="col-md-2">
+                                <img class="image" src="{{ '/images/articles/'.$article->id.'/'.$article->image }}" />
+                            </div>
+                            <div class="col-md-10">
+                                <h2 class="title">{{ $article->title }}</h2>
+                            </div>
                         </div>
                     </div>
                 @endforeach
