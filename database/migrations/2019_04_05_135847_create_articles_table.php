@@ -17,8 +17,9 @@ class CreateArticlesTable extends Migration
             $table->bigIncrements('id');
             $table->string("title");
             $table->string("slug")->unique();
+            $table->string("image")->default("");
             $table->text("short_desc");
-            $table->string("document_path");
+            $table->string("document_path")->default("");
             $table->timestamps();
         });
     }
