@@ -24,6 +24,6 @@ class UsersTableSeeder extends Seeder
             "email"=>"fmarostica@automatizasa.com.ar",
             "password"=>bcrypt("Cookie2602")
         ]);
-        factory(App\User::class, 29)->create();
+        factory(App\User::class, 28)->create();
     }
 }
