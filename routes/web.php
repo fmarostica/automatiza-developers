@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/docs', 'DocsController@index')->name('docs');
+Route::get('/docs', 'DocumentController@index')->name('docs');
 
 Auth::routes();
 
