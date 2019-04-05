@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/docs', 'DocumentController@index')->name('docs');
+Route::get('/news', 'ArticleController@index')->name('news');
 
 Auth::routes();
 
