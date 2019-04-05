@@ -12,10 +12,17 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         App\User::create([
+            "name"=>"Alejandro",
+            "last_name"=>"Pero",
+            "email"=>"apero@automatizasa.com.ar",
+            "password"=>bcrypt("Cookie2602")
+        ]);
+
+        App\User::create([
             "name"=>"Franco",
             "last_name"=>"Marostica",
             "email"=>"fmarostica@automatizasa.com.ar",
-            "password"=>bcrypt("Galletita2602")
+            "password"=>bcrypt("Cookie2602")
         ]);
         factory(App\User::class, 29)->create();
     }
