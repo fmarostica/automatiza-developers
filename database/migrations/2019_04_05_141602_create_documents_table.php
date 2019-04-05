@@ -15,6 +15,12 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string("title");
+            $table->string("slug")->unique();
+            $table->string("short_desc")->default("");
+            $table->string("image")->default("/images/logo.jpg");
+            $table->string("path")->default("");
+            $table->text("content");
             $table->timestamps();
         });
     }
