@@ -14,6 +14,7 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('/docs', 'DocumentController');
 Route::get('/news', 'ArticleController@index')->name('news');
+Route::get('/downloads', 'DownloadsController@index')->name('downloads');
 
 Auth::routes();
 
