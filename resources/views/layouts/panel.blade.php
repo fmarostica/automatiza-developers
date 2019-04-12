@@ -37,23 +37,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Common links -->
-                        <li class="nav-item"><a href="{{ url('/') }}" class="nav-link">{{ __("app.home") }}</a></li>
-                        <li class="nav-item"><a href="{{ url('/news') }}" class="nav-link">{{ __("app.news") }}</a></li>
-                        <li class="nav-item"><a href="{{ url('/docs') }}" class="nav-link">{{ __("app.documentation") }}</a></li>
-                        <li class="nav-item"><a href="{{ url('/downloads') }}" class="nav-link">{{ __("app.downloads") }}</a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('app.login') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <!--
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('app.register') }}</a>
-                                </li>
-                                -->
-                            @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -61,10 +49,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('panel') }}">{{ __('app.panel') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('app.logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('panel') }}">{{ __('app.panel') }}</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -78,6 +66,7 @@
         </nav>
 
         <main>
+            
             @yield('content')
         </main>
     </div>

@@ -15,6 +15,9 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::resource('/docs', 'DocumentController');
 Route::get('/news', 'ArticleController@index')->name('news');
 Route::get('/downloads', 'DownloadsController@index')->name('downloads');
+Route::get('/panel', function(){
+    return view("panel.index");
+})->name('panel')->middleware('auth');
 
 Auth::routes();
 

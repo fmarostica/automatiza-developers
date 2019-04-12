@@ -14,4 +14,5 @@ return [
     "pass"=>"Clave",
     "remember_me"=>"Recordarme",
     "forgot_pass"=>"¿Olvido su clave?",
+    "panel"=>"Panel",
 ];
