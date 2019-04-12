@@ -14,14 +14,12 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('/docs', 'DocumentController');
 Route::get('/news', 'ArticleController@index')->name('news');
+Route::get('/panel/novedades', 'ArticleController@panel')->name('panel-news')->middleware("auth");
+
 Route::get('/downloads', 'DownloadsController@index')->name('downloads');
 Route::get('/panel', function(){
     return view("panel.index");
 })->name('panel')->middleware('auth');
-
-Route::get('/panel/novedades', function(){
-    return view("panel.news");
-})->middleware('auth');
 
 Route::get('/panel/documentacion', function(){
     return view("panel.documents");

@@ -1,3 +1,39 @@
+.btn-toolbar{
+    border: 0px;
+    background: rgb(10, 88, 190);
+    padding: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+.btn-toolbar:hover{
+    border: 0px;
+    background: rgb(53, 123, 214);
+    padding: 5px;
+}
+.btn-toolbar:disabled{
+    background-color: #333;
+}
+.btn-toolbar svg{
+    fill: #fff;
+    width: 30px;
+    height: 30px;
+}
+
+.gm-uc-sidebar{
+    position: absolute;
+    width: 250px;
+    height: calc(100vh - 180px);
+    background-color: rgba(0,0,0,0.9);
+    color: #fff;
+    top: 40px;
+    right: -250px;
+    padding: 10px;
+    transition: all 0.5s; 
+}
+.gm-uc-sidebar.open{
+    right: 0px
+}
+
 #leftsidebar{
     position: fixed;
     width: 300px;
@@ -76,7 +112,7 @@
 }
 
 #output{
-    position: absolute;
+    position: fixed;
     background-color: #fff;
     color: #333;
     left: 300px;
@@ -85,6 +121,37 @@
     height: calc(100vh - 55px);
     /*background-color: rgb(41, 41, 41);*/
     z-index: 0;
+}
+
+#output .gm-uc-page-header{
+    display: flex;
+    height: 40px;
+    vertical-align: top;
+    background-color: #333;
+}
+
+#output .gm-uc-page-header .toolbar-search{
+    flex-grow: 1;
+    border-radius: 0px;
+    height: 40px;
+}
+
+#output .gm-uc-page-body{
+    background-color: #fff;
+    scrollbar-color: rgb(10, 88, 190) rgb(36, 36, 36);
+    scrollbar-width: thin;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100vh - 135px);
+}
+
+#output .gm-uc-page-footer{
+    position: fixed;
+    height: 40px;
+    bottom: 0;
+    width: 100%;
+    background-color: #222;
+    padding: 1px;
 }
 
 #pdcbody{
