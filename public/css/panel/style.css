@@ -1,0 +1,94 @@
+#leftsidebar{
+    position: fixed;
+    width: 300px;
+    top: 55px;
+    height: calc(100vh - 55px);
+    background-color: #222;
+    display: inline-block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-color: rgb(10, 88, 190) rgb(36, 36, 36);
+    scrollbar-width: thin;
+}
+
+.menu-item{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 35px;
+    border: 0px;
+    padding: 0px;
+    color: #aaa;
+}
+
+.menu-item:hover, .menu-item.active{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.menu-item:hover .deco, .menu-item.active .deco{
+    background-color: rgb(10, 88, 190);
+}
+
+.menu-item .deco{
+    position: absolute;
+    display: inline-block;
+    width: 4px;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: #333;
+    border: 0px;
+}
+.menu-item .label{
+    position: absolute;
+    display: inline-block;
+    width: calc(100% - 10px);
+    height: 100%;
+    top: 0px;
+    left: 10px;
+    vertical-align: top;
+    line-height: 35px;
+    text-align: left;
+    padding-left: 10px;
+    color: #aaa;
+}
+.menu-item .badge{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 13px;
+    top: 5px;
+    right: 10px;
+    background-color: rgb(10, 88, 190);
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    line-height: 17px;
+}
+
+.navbar{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 2;
+}
+
+#output{
+    position: absolute;
+    background-color: #fff;
+    color: #333;
+    left: 300px;
+    top: 55px;
+    width: calc(100% - 300px);
+    height: calc(100vh - 55px);
+    /*background-color: rgb(41, 41, 41);*/
+    z-index: 0;
+}
+
+#pdcbody{
+    margin-top: 66px;
+    width: 100%;
+    height: calc(100vh - 100px);
+}

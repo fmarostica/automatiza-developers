@@ -19,5 +19,17 @@ Route::get('/panel', function(){
     return view("panel.index");
 })->name('panel')->middleware('auth');
 
+Route::get('/panel/novedades', function(){
+    return view("panel.news");
+})->middleware('auth');
+
+Route::get('/panel/documentacion', function(){
+    return view("panel.documents");
+})->middleware('auth');
+
+Route::get('/panel/descargas', function(){
+    return view("panel.downloads");
+})->middleware('auth');
+
 Auth::routes();
 

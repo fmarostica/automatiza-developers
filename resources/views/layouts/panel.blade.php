@@ -19,10 +19,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/panel/style.css" />
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}"><img src="/images/automatiza-dev.png" class="logo" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -53,7 +54,6 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('app.logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -66,8 +66,28 @@
         </nav>
 
         <main>
-            
-            @yield('content')
+            <article id="pdcbody">
+                <aside id="leftsidebar" class="gm-sidebar">
+                    <a class="menu-item" href="/panel/novedades">
+                        <div class="deco"></div>
+                        <div class="label">Novedades</div>
+                        <div class="badge"></div>
+                    </a>
+                    <a class="menu-item" href="/panel/documentacion">
+                        <div class="deco"></div>
+                        <div class="label">Documentación</div>
+                        <div class="badge"></div>
+                    </a>
+                    <a class="menu-item" href="/panel/descargas">
+                        <div class="deco"></div>
+                        <div class="label">Descargas</div>
+                        <div class="badge"></div>
+                    </a>
+                </aside>
+                <div id="output">
+                    @yield('content')
+                </div>
+            </article>
         </main>
     </div>
 </body>
