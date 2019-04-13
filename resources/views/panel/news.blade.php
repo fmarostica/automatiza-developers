@@ -3,11 +3,11 @@
 @section('content')
     <div id="finances_page" class="gm-uc-page">
         <div class="gm-uc-page-header">
-            <button id="ucProductos-btnAgregar" title="Agregar producto" type="button" class="btn-toolbar">
+            <a id="ucProductos-btnAgregar" href="/panel/novedades/agregar" title="Agregar producto" type="button" class="btn-toolbar">
                 <svg viewBox="0 0 24 24">
                     <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
                 </svg>
-            </button>
+            </a>
             <input id="ucProductos-txtBuscar" placeholder="Buscar" class="form-control gm-filter toolbar-search" type="search" />
             <button id="" type="button" style="inline-block" class="gm-icon-button btnFilter btn-toolbar">
                 <svg viewBox="0 0 24 24">
@@ -18,21 +18,28 @@
         <div class="gm-uc-page-body">
             <div class="gm-itembox-container">
                 @if (count($articles)>0)
-                    <div class="row">
                         @foreach ($articles as $article)
-                            <div class="col-md-3">
-                                <div class="article-box-item my-3">
-                                    <img class="image" src="{{ $article->image }}" />
-                                    <div>
+                            <div class="article-list-item">
+                                <div class="row py-2 px-2">
+                                    <div class="col-md-2">
+                                            <img class="image" src="{{ $article->image }}" />
+                                    </div>
+                                    <div class="col-md-10">
                                         <h2 class="title">{{ $article->title }}</h2>
                                         <div>
                                             {{ $article->short_desc }}
                                         </div>
                                     </div>
+                                    <div class="col-md-12 text-right">
+                                        <button class="btn btn-danger">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
-                    </div>
                 @else
                     {{ __("app.not_registers_found") }}    
                 @endif

@@ -15,6 +15,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::resource('/docs', 'DocumentController');
 Route::get('/news', 'ArticleController@index')->name('news');
 Route::get('/panel/novedades', 'ArticleController@panel')->name('panel-news')->middleware("auth");
+Route::get('/panel/novedades/agregar', 'ArticleController@create')->name('panel-news-add')->middleware("auth");
 
 Route::get('/downloads', 'DownloadsController@index')->name('downloads');
 Route::get('/panel', function(){
