@@ -31,7 +31,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 text-right">
-                                        <button class="btn btn-danger">
+                                        <button class="btn btn-danger delete">
                                             <svg viewBox="0 0 24 24">
                                                 <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
                                             </svg>
@@ -76,4 +76,41 @@
             {{ $articles->links() }}
         </div>
     </div>
+    <script>
+        $(".delete").click(function(){
+            swal({
+                title: "Seguro que deseas eliminar este registro?",
+                text: "El registro se borrará de forma permanente!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Si",
+                cancelButtonText: "No",
+                showLoaderOnConfirm: true,
+                closeOnConfirm: false
+            }, function () {
+                $.ajax({
+                    url: $this.ajax_url,
+                    data: {
+                        module: "products_services",
+                        topic: "delete", 
+                        id: id
+                    },
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function(data)
+                    {
+                        var error = data.Error;
+                        if(error==""){
+                            swal("Registro borrado!", "El producto ha sido borrado.", "success");
+                            $this.cargar_datos();
+                        }
+                        else{
+                            swal("Error al borrar!", error, "error");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
