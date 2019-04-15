@@ -24,7 +24,7 @@ class ArticleController extends Controller
     }
 
     public function list(){
-        $articles = Article::paginate(8);
+        $articles = Article::orderBy("id", "desc")->paginate(8);
         return response()->json($articles);
     }
 

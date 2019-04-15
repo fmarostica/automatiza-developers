@@ -16,34 +16,7 @@
             </button>
         </div>
         <div class="gm-uc-page-body">
-            <div id="records-container" class="gm-itembox-container">
-                @if (count($articles)>0)
-                    @foreach ($articles as $article)
-                        <div class="article-list-item" data-id="{{ $article->id }}">
-                            <div class="row py-2 px-2">
-                                <div class="col-md-2">
-                                    <img class="image" src="{{ $article->image }}" />
-                                </div>
-                                <div class="col-md-10">
-                                    <h2 class="title">{{ $article->title }}</h2>
-                                    <div>
-                                        {{ $article->short_desc }}
-                                    </div>
-                                </div>
-                                <div class="col-md-12 text-right">
-                                    <button class="btn btn-danger delete">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @else
-                    {{ __("app.not_registers_found") }}    
-                @endif
-            </div>
+            <div id="records-container" class="gm-itembox-container"></div>
         </div>
         <div id="page-footer" class="gm-uc-page-footer">
             <button id="btn-pager-first" class="gm-btn primary btn-toolbar" disabled>
@@ -68,7 +41,10 @@
             </button>
         </div>
     </div>
-    <script src="/js/panel/news.js">
-        news.load_records();
+    <script src="/js/panel/news.js"></script>
+    <script>
+        $(document).ready(function(){
+            news.load_records();
+        });
     </script>
 @endsection
