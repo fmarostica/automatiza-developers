@@ -33,7 +33,7 @@ Route::delete('panel/docs/{id}', 'DocumentController@destroy')->middleware('auth
 Route::get('/downloads', 'DownloadsController@index')->name('downloads');
 Route::get('/panel/downloads', function(){ return view('panel.downloads'); });
 Route::get('/panel/downloads/create', 'DownloadsController@create')->middleware('auth');
-Route::post('/panel/downloads/add', 'DownloadsController@add')->middleware('auth');
+Route::post('/panel/downloads/add', 'DownloadsController@store')->middleware('auth');
 Route::delete('panel/downloads/{id}', 'DownloadsController@destroy')->middleware('auth');
 Route::get('/downloads/list', 'DownloadsController@list');
 

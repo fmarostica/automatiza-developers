@@ -29,5 +29,6 @@
         </div>
         <div id="page-footer" class="gm-uc-page-footer"></div>
     </div>
-    <script src="/js/panel/docs.js"></script>
+    <script src="/js/panel/downloads.js"></script>
+    
 @endsection

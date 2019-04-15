@@ -53,7 +53,7 @@ var docs = {
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
         $.ajax({
-            url: "/docs/create",
+            url: "/docs/add",
             type: "POST",
             data: {
                 _token: CSRF_TOKEN,

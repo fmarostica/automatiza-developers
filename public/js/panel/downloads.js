@@ -8,7 +8,27 @@ var downloads = {
             downloads.delete(id);
             
         });
+        $("#btn-add").click(function(e){
+            e.preventDefault();
+            downloads.add();
+        });
         //news.load_records();
+    },
+    add: function(){
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: "/panel/downloads/add",
+            type: "POST",
+            data: {
+                _token: CSRF_TOKEN,
+                title: $("#title").val(),
+                short_desc: $("#short-desc").val()
+            },
+            success: function(response){
+                window.location.replace("/panel/downloads");
+            }
+        });
     },
     delete: function(id){
         swal({
