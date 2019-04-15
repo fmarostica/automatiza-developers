@@ -35,7 +35,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view("panel.news-add", compact("articles"));
+        return view("panel.news-add");
     }
 
     /**
