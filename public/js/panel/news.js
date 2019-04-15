@@ -31,7 +31,7 @@ var news = {
                 }
             });
             $.ajax({
-                url: "/panel/novedades/"+id,
+                url: "/panel/news/"+id,
                 type: 'DELETE',
                 dataType: 'json',
                 success: function(data)
@@ -52,7 +52,7 @@ var news = {
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
         $.ajax({
-            url: "/news/create",
+            url: "/panel/news/add",
             type: "POST",
             data: {
                 _token: CSRF_TOKEN,
@@ -60,7 +60,7 @@ var news = {
                 short_desc: $("#short-desc").val()
             },
             success: function(response){
-                window.location.replace("/panel/novedades");
+                window.location.replace("/panel/news");
             }
         });
     },

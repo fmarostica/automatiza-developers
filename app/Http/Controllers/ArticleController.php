@@ -18,11 +18,6 @@ class ArticleController extends Controller
         return view("news", compact("articles"));
     }
 
-    public function panel(){
-        $articles = Article::paginate(8);
-        return view("panel.news", compact("articles"));
-    }
-
     public function list(){
         $articles = Article::orderBy("id", "desc")->paginate(8);
         return response()->json($articles);

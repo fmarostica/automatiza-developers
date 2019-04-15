@@ -70,17 +70,17 @@
         <main>
             <article id="pdcbody">
                 <aside id="leftsidebar" class="gm-sidebar">
-                    <a class="menu-item" href="/panel/novedades">
+                    <a class="menu-item" href="/panel/news">
                         <div class="deco"></div>
                         <div class="label">Novedades</div>
                         <div class="badge"></div>
                     </a>
-                    <a class="menu-item" href="/panel/documentacion">
+                    <a class="menu-item" href="/panel/docs">
                         <div class="deco"></div>
                         <div class="label">Documentación</div>
                         <div class="badge"></div>
                     </a>
-                    <a class="menu-item" href="/panel/descargas">
+                    <a class="menu-item" href="/panel/downloads">
                         <div class="deco"></div>
                         <div class="label">Descargas</div>
                         <div class="badge"></div>

@@ -25,7 +25,7 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        //
+        return view('panel.documents-add');
     }
 
     /**
@@ -61,6 +61,11 @@ class DocumentController extends Controller
         //
     }
 
+    public function list(){
+        $docs = Document::orderBy("id", "desc")->paginate(8);
+        return response()->json($docs);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -79,8 +84,9 @@ class DocumentController extends Controller
      * @param  \App\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Document $document)
+    public function destroy(string $id) : string
     {
-        //
+        Document::find($id)->delete();
+        return json_encode(array("Response"=>"Registro borrado", "Error"=>""));
     }
 }

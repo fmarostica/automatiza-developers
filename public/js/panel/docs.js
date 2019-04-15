@@ -1,14 +1,18 @@
-var news = {
+var docs = {
     current_page: 1,
     last_page: 1,
     initialize: function(){
         $("#records-container").on("click", ".delete", function(){
             let listItem = $(this).closest(".article-list-item");
             let id = listItem.data("id");
-            news.delete(id);
+            docs.delete(id);
             
         });
-        news.load_records();
+        $("#btn-add").click(function(e){
+            e.preventDefault();
+            docs.add();
+        });
+        //docs.load_records();
     },
     delete: function(id){
         swal({
@@ -28,7 +32,7 @@ var news = {
                 }
             });
             $.ajax({
-                url: "/panel/novedades/"+id,
+                url: "/panel/docs/"+id,
                 type: 'DELETE',
                 dataType: 'json',
                 success: function(data)
@@ -36,7 +40,7 @@ var news = {
                     var error = data.Error;
                     if(error==""){
                         swal("Registro borrado!", "El producto ha sido borrado.", "success");
-                        news.load_records();
+                        docs.load_records();
                     }
                     else{
                         swal("Error al borrar!", error, "error");
@@ -45,17 +49,33 @@ var news = {
             });
         });
     },
+    add: function(){
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: "/docs/create",
+            type: "POST",
+            data: {
+                _token: CSRF_TOKEN,
+                title: $("#title").val(),
+                short_desc: $("#short-desc").val()
+            },
+            success: function(response){
+                window.location.replace("/panel/docs");
+            }
+        });
+    },
     load_records: function(){
         $("#records-container").empty();
 
         $.ajax({
-            url: '/news/list?page='+news.current_page,
+            url: '/docs/list?page='+docs.current_page,
             type: 'GET',
             dataType: 'json',
             success: function(result){
                 var registers = result.data;
-                news.current_page = result.current_page;
-                news.last_page = result.last_page;
+                docs.current_page = result.current_page;
+                docs.last_page = result.last_page;
 
                 for (let i = 0; i < registers.length; i++) {
                     $("#records-container").append('<div class="article-list-item" data-id="'+registers[i].id+'">'+
@@ -80,7 +100,7 @@ var news = {
                     '</div>');
                 }
 
-                if(news.current_page<news.last_page){
+                if(docs.current_page<docs.last_page){
                     $("#btn-pager-next").prop("disabled", false);
                     $("#btn-pager-last").prop("disabled", false);
                 } else {
@@ -88,7 +108,7 @@ var news = {
                     $("#btn-pager-last").prop("disabled", true);
                 }
                 
-                if(news.current_page>1){
+                if(docs.current_page>1){
                     $("#btn-pager-previous").prop("disabled", false);
                     $("#btn-pager-first").prop("disabled", false);
                 } else {
@@ -100,4 +120,4 @@ var news = {
     }
 }
 
-news.initialize();
+docs.initialize();
