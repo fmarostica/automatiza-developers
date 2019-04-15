@@ -15,8 +15,16 @@
                 <input id="title" type="text" class="form-control" />
             </div>
             <div class="form-group">
-                <label>Contenido</label>
+                <label>Descripción</label>
                 <textarea id="short-desc" type="text" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Enlace github/gitlab</label>
+                <input id="git-link" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="input-file">Adjuntar archivo (comprimido en zip)</label>
+                <br/><input id="input-file" type="file" />
             </div>
         </div>
         <div id="page-footer" class="gm-uc-page-footer"></div>
