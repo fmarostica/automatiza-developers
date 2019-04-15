@@ -68,5 +68,7 @@
             </button>
         </div>
     </div>
-    <script src="/js/panel/news.js"></script>
+    <script src="/js/panel/news.js">
+        news.load_records();
+    </script>
 @endsection

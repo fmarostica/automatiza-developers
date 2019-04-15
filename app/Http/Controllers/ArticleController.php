@@ -46,7 +46,17 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $title = $request->input("title");
+        
+        $article = new Article([
+            'title'=>$title,
+            'slug'=>str_slug($title),
+            'image'=>'/images/logo.jpg',
+            'short_desc'=>$request->input('short_desc'),
+            'document_path'=>''
+        ]);
+        $article->save();
+        //return response()->json($request);
     }
 
     /**

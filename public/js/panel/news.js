@@ -6,9 +6,12 @@ var news = {
             let listItem = $(this).closest(".article-list-item");
             let id = listItem.data("id");
             news.delete(id);
-            
         });
-        news.load_records();
+        $("#btn-add").click(function(e){
+            e.preventDefault();
+            news.add();
+        });
+        //news.load_records();
     },
     delete: function(id){
         swal({
@@ -43,6 +46,22 @@ var news = {
                     }
                 }
             });
+        });
+    },
+    add: function(){
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: "/news/create",
+            type: "POST",
+            data: {
+                _token: CSRF_TOKEN,
+                title: $("#title").val(),
+                short_desc: $("#short-desc").val()
+            },
+            success: function(response){
+                window.location.replace("/panel/novedades");
+            }
         });
     },
     load_records: function(){
