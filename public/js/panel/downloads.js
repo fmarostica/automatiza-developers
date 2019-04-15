@@ -1,14 +1,14 @@
-var news = {
+var downloads = {
     current_page: 1,
     last_page: 1,
     initialize: function(){
         $("#records-container").on("click", ".delete", function(){
             let listItem = $(this).closest(".article-list-item");
             let id = listItem.data("id");
-            news.delete(id);
+            downloads.delete(id);
             
         });
-        news.load_records();
+        //news.load_records();
     },
     delete: function(id){
         swal({
@@ -28,7 +28,7 @@ var news = {
                 }
             });
             $.ajax({
-                url: "/panel/novedades/"+id,
+                url: "/panel/downloads/"+id,
                 type: 'DELETE',
                 dataType: 'json',
                 success: function(data)
@@ -36,7 +36,7 @@ var news = {
                     var error = data.Error;
                     if(error==""){
                         swal("Registro borrado!", "El producto ha sido borrado.", "success");
-                        news.load_records();
+                        downloads.load_records();
                     }
                     else{
                         swal("Error al borrar!", error, "error");
@@ -49,13 +49,13 @@ var news = {
         $("#records-container").empty();
 
         $.ajax({
-            url: '/news/list?page='+news.current_page,
+            url: '/downloads/list?page='+downloads.current_page,
             type: 'GET',
             dataType: 'json',
             success: function(result){
                 var registers = result.data;
-                news.current_page = result.current_page;
-                news.last_page = result.last_page;
+                downloads.current_page = result.current_page;
+                downloads.last_page = result.last_page;
 
                 for (let i = 0; i < registers.length; i++) {
                     $("#records-container").append('<div class="article-list-item" data-id="'+registers[i].id+'">'+
@@ -80,7 +80,7 @@ var news = {
                     '</div>');
                 }
 
-                if(news.current_page<news.last_page){
+                if(downloads.current_page<downloads.last_page){
                     $("#btn-pager-next").prop("disabled", false);
                     $("#btn-pager-last").prop("disabled", false);
                 } else {
@@ -88,7 +88,7 @@ var news = {
                     $("#btn-pager-last").prop("disabled", true);
                 }
                 
-                if(news.current_page>1){
+                if(downloads.current_page>1){
                     $("#btn-pager-previous").prop("disabled", false);
                     $("#btn-pager-first").prop("disabled", false);
                 } else {
@@ -100,4 +100,4 @@ var news = {
     }
 }
 
-news.initialize();
+downloads.initialize();

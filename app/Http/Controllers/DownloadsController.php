@@ -11,4 +11,14 @@ class DownloadsController extends Controller
         $downloads = Download::paginate(8);
         return view("downloads", compact("downloads"));
     }
+
+    public function list(){
+        $downloads = Download::orderBy("id", "desc")->paginate(8);
+        return response()->json($downloads);
+    }
+
+    public function create()
+    {
+        return view('panel.downloads-add');
+    }
 }
