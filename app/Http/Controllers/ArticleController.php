@@ -23,6 +23,11 @@ class ArticleController extends Controller
         return view("panel.news", compact("articles"));
     }
 
+    public function list(){
+        $articles = Article::paginate(8);
+        return response()->json($articles);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -84,8 +89,9 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy(string $id)
     {
-        //
+        Article::find($id)->delete();
+        return json_encode(array("Response"=>"Registro borrado", "Error"=>""));
     }
 }
