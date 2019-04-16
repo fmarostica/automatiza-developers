@@ -17,9 +17,9 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/news', 'ArticleController@index')->name('news');
 Route::get('/news/list', 'ArticleController@list');
 Route::get('/panel/news', function(){ return view('panel.news'); })->name('panel-news')->middleware("auth");
+Route::post('/news/add', 'ArticleController@store')->name('panel-news-add')->middleware("auth");
 Route::get('/panel/news/create', 'ArticleController@create');
-Route::delete('/panel/news/{id}', 'ArticleController@destroy');
-Route::post('/panel/news/add', 'ArticleController@store')->name('panel-news-add')->middleware("auth");
+Route::delete('/news/{id}', 'ArticleController@destroy');
 
 //docs
 Route::get('/docs', 'DocumentController@index')->name('docs');

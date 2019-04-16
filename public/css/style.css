@@ -49,6 +49,10 @@
     color: white;
 }
 
+.center, .centered{
+    text-align: center;
+}
+
 .page-item.active .page-link {
     background-color: rgb(118, 0, 139);
     border-color: rgb(118, 0, 139);

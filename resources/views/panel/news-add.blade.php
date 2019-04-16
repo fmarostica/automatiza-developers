@@ -3,7 +3,7 @@
 @section('content')
 <div id="news-page" class="gm-uc-page">
         <div class="gm-uc-page-header">
-            <button id="btn-add" href="/panel/novedades/agregar" title="Agregar producto" type="button" class="btn-toolbar">
+            <button id="btn-add" title="Agregar noticia" type="button" class="btn-toolbar">
                 <svg viewBox="0 0 24 24">
                     <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
                 </svg>
@@ -21,5 +21,8 @@
         </div>
         <div id="page-footer" class="gm-uc-page-footer"></div>
     </div>
-    <script src="/js/panel/news.js"></script>
+    <script src="/js/panel/module.js"></script>
+    <script>
+        $(document).ready(function(){$module.initialize("/news");});
+    </script>
 @endsection
